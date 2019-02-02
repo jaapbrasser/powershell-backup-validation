@@ -98,7 +98,7 @@ function New-BuildConfiguration {
         if (('N','no') -contains $UserInput) {
         }     
         if (('Y','yes') -contains $UserInput) {
-            $Splat = 
+            $Splat = New-InvokeBuildSplat
             Invoke-Build @Splat
         }
     } until ($UserInput) 
