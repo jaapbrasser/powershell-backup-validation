@@ -12,7 +12,7 @@ function New-BuildConfiguration {
         }     
         if (('Y','yes') -contains $UserInput) {
             $Uri = 'https://github.com/rubrikinc/Use-Case-PowerShell-Backup-Validation/blob/master/docs/quick-start.md'
-            Write-Output 'Opening {0} in default browsers' -f $Uri
+            Write-Output ('Opening {0} in default browser' -f $Uri)
             Start-Process $Uri
         }
     } until ($UserInput)

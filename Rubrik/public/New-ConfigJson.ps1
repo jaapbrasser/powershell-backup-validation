@@ -22,7 +22,11 @@ function New-ConfigJson {
         $null = New-Item -Path './config' -ItemType Directory
     }
 
-    [pscustomobject]$MyInvocation.BoundParameters |
+    $CurrentConfig = [pscustomobject]$MyInvocation.BoundParameters
+    $CurrentConfig.TestIp = $CurrentConfig.TestIp.ToString()
+    $CurrentConfig.TestGateway = $CurrentConfig.TestGateway.ToString()
+    
+    $CurrentConfig |
     ConvertTo-Json -Depth 3 | 
     Set-Content -Path (Join-Path './config' $ConfigFilePath)
 }

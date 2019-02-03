@@ -22,7 +22,7 @@ function New-SecureCredential {
                 $null = New-Item -Path './credential' -ItemType Directory
             }
             
-            '$RubrikCred', 'VMwareCred', 'GuestCred' | ForEach-Object {
+            'RubrikCred', 'VMwareCred', 'GuestCred' | ForEach-Object {
                 $Credential = (Get-Item variable:$_).Value
                 $Credential | Export-Clixml -Path $(Join-Path $Path "$_.xml")
             }
